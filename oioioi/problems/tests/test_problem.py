@@ -1,4 +1,3 @@
-#import six
 from django.conf import settings
 from django.contrib.auth.models import AnonymousUser, Permission, User
 from django.contrib.contenttypes.models import ContentType
@@ -169,9 +168,6 @@ class TestProblemViews(TestCase, TestStreamingMixin):
         problem = Problem.objects.get()
         contest = Contest.objects.get()
         statement = ProblemStatement.objects.get()
-
-        # with open(__file__, "rb") as f:
-        #     file = six.ensure_text(f.read())
 
         check_not_accessible(
             self,
