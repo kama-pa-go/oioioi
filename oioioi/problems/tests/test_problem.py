@@ -166,28 +166,28 @@ class TestProblemViews(TestCase, TestStreamingMixin):
         self.assertEqual(response.status_code, 200)
 
     def _test_problem_permissions(self):
-        #problem = Problem.objects.get()
+        problem = Problem.objects.get()
         contest = Contest.objects.get()
-        #statement = ProblemStatement.objects.get()
+        statement = ProblemStatement.objects.get()
 
         with open(__file__, "rb") as f:
             file = six.ensure_text(f.read())
 
-        check_not_accessible(
-            self,
-            "oioioiadmin:problems_problem_add",
-            data={"package_file": file, "contest_id": contest.id},
-        )
         # check_not_accessible(
         #     self,
-        #     "add_or_update_problem",
-        #     kwargs={"contest_id": contest.id},
-        #     qs={"problem": problem.id},
+        #     "oioioiadmin:problems_problem_add",
+        #     data={"package_file": file, "contest_id": contest.id},
         # )
-        # check_not_accessible(self, "oioioiadmin:problems_problem_download", args=(problem.id,))
-        # check_not_accessible(self, "oioioiadmin:problems_problem_change", args=(problem.id,))
-        # check_not_accessible(self, "oioioiadmin:problems_problem_delete", args=(problem.id,))
-        # check_not_accessible(self, "show_statement", kwargs={"statement_id": statement.id})
+        check_not_accessible(
+            self,
+            "add_or_update_problem",
+            kwargs={"contest_id": contest.id},
+            qs={"problem": problem.id},
+        )
+        check_not_accessible(self, "oioioiadmin:problems_problem_download", args=(problem.id,))
+        check_not_accessible(self, "oioioiadmin:problems_problem_change", args=(problem.id,))
+        check_not_accessible(self, "oioioiadmin:problems_problem_delete", args=(problem.id,))
+        check_not_accessible(self, "show_statement", kwargs={"statement_id": statement.id})
 
     def test_problem_permissions(self):
         self._test_problem_permissions()
