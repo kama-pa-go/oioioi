@@ -170,8 +170,8 @@ class TestProblemViews(TestCase, TestStreamingMixin):
         contest = Contest.objects.get()
         statement = ProblemStatement.objects.get()
 
-        with open(__file__, "rb") as f:
-            file = six.ensure_text(f.read())
+        # with open(__file__, "rb") as f:
+        #     file = six.ensure_text(f.read())
 
         # check_not_accessible(
         #     self,
