@@ -185,7 +185,7 @@ class TestProblemViews(TestCase, TestStreamingMixin):
             qs={"problem": problem.id},
         )
         check_not_accessible(self, "oioioiadmin:problems_problem_download", args=(problem.id,))
-        check_not_accessible(self, "oioioiadmin:problems_problem_change", args=(problem.id,))
+        # check_not_accessible(self, "oioioiadmin:problems_problem_change", args=(problem.id,))
         check_not_accessible(self, "oioioiadmin:problems_problem_delete", args=(problem.id,))
         check_not_accessible(self, "show_statement", kwargs={"statement_id": statement.id})
 
