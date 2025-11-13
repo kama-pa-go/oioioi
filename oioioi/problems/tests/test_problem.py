@@ -166,9 +166,9 @@ class TestProblemViews(TestCase, TestStreamingMixin):
         self.assertEqual(response.status_code, 200)
 
     def _test_problem_permissions(self):
-        problem = Problem.objects.get()
+        #problem = Problem.objects.get()
         contest = Contest.objects.get()
-        statement = ProblemStatement.objects.get()
+        #statement = ProblemStatement.objects.get()
 
         with open(__file__, "rb") as f:
             file = six.ensure_text(f.read())
