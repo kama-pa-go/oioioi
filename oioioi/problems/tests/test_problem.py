@@ -1,4 +1,4 @@
-import six
+#import six
 from django.conf import settings
 from django.contrib.auth.models import AnonymousUser, Permission, User
 from django.contrib.contenttypes.models import ContentType
