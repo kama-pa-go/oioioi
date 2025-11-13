@@ -173,11 +173,11 @@ class TestProblemViews(TestCase, TestStreamingMixin):
         # with open(__file__, "rb") as f:
         #     file = six.ensure_text(f.read())
 
-        # check_not_accessible(
-        #     self,
-        #     "oioioiadmin:problems_problem_add",
-        #     data={"package_file": file, "contest_id": contest.id},
-        # )
+        check_not_accessible(
+            self,
+            "oioioiadmin:problems_problem_add",
+            data={"package_file": "dummy_file_content", "contest_id": contest.id},
+        )
         check_not_accessible(
             self,
             "add_or_update_problem",
@@ -268,7 +268,6 @@ class TestProblemPackageViews(TestCase, TestStreamingMixin):
         models = ["problempackage", "contestproblempackage"]
         view_prefix = "oioioiadmin:problems_"
         package = ProblemPackage.objects.get(pk=2)
-
         for m in models:
             prefix = view_prefix + m + "_"
             check_not_accessible(self, prefix + "add")
