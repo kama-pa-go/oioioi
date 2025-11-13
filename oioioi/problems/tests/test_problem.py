@@ -188,7 +188,6 @@ class TestProblemViews(TestCase, TestStreamingMixin):
         check_not_accessible(self, "oioioiadmin:problems_problem_change", args=(problem.id,))
         check_not_accessible(self, "oioioiadmin:problems_problem_delete", args=(problem.id,))
         check_not_accessible(self, "show_statement", kwargs={"statement_id": statement.id})
-#
 
     def test_problem_permissions(self):
         self._test_problem_permissions()
