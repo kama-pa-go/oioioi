@@ -268,6 +268,7 @@ class TestProblemPackageViews(TestCase, TestStreamingMixin):
         models = ["problempackage", "contestproblempackage"]
         view_prefix = "oioioiadmin:problems_"
         package = ProblemPackage.objects.get(pk=2)
+
         for m in models:
             prefix = view_prefix + m + "_"
             check_not_accessible(self, prefix + "add")
